@@ -8,8 +8,11 @@ import { DualListComponent } from 'angular-dual-listbox';
 	template: `
 <div class="container-fluid">
 	<p></p>
-	<dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
-		[(destination)]="confirmed" height="265px" [format]="format" [disabled]="disabled"></dual-list>
+	<!-- <dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+		[(destination)]="confirmed" height="265px" [format]="format" [disabled]="disabled"></dual-list> -->
+
+	<app-my-dual-list [sort]="keepSorted" [source]="source" [key]="key" [display]="display" [filter]="filter"
+		[(destination)]="confirmed" height="265px" [format]="format" [disabled]="disabled"></app-my-dual-list>
 
 	<ul class="nav nav-tabs" style="margin-top:50px;">
 		<li [class.active]="tab===1"><a (click)="tab=1">Arrays</a><li>
@@ -228,7 +231,8 @@ export class DemoAppComponent implements OnInit {
 	private useStations() {
 		this.key = 'key';
 		this.display = this.stationLabel;
-		this.keepSorted = true;
+		// this.keepSorted = true;
+		this.keepSorted = false;
 		this.source = this.sourceStations;
 		this.confirmed = this.confirmedStations;
 	}
@@ -264,6 +268,8 @@ export class DemoAppComponent implements OnInit {
 	}
 
 	doReset() {
+		this.format.all = 'Select All';
+		this.format.none = 'Clear All';
 		this.sourceChessmen = JSON.parse(JSON.stringify(this.chessmen));
 		this.sourceStations = JSON.parse(JSON.stringify(this.stations));
 		this.sourceTube = JSON.parse(JSON.stringify(this.tube));

@@ -5,10 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { AngularDualListBoxModule } from 'angular-dual-listbox';
 
 import { DemoAppComponent } from './demo-app.component';
+import { MyDualListComponent } from './my-dual-list.component';
 
 @NgModule({
 	imports:      [ BrowserModule, FormsModule, AngularDualListBoxModule ],
-	declarations: [ DemoAppComponent ],
+	declarations: [ DemoAppComponent, MyDualListComponent ],
 	bootstrap:    [ DemoAppComponent ]
 })
 export class AppModule { }
